@@ -1,0 +1,28 @@
+/*---------------BASIC---------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a,
+a:hover,
+a:active,
+a:visited {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+
+img {
+    user-select: none;
+}

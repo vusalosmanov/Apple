@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes  , Route} from "react-router-dom";
-import Main from "./components/Main";
+import Header from "./components/header/Header";
 
 function App() {
   return (
     <>
-    <Main/>
+    <Header/>
       <Routes>
       <Route path=""/>
       </Routes>
