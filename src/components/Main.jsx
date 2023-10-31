@@ -1,9 +1,10 @@
 import React from 'react'
+import Icmal from './Icmal.jsx'
 
 const Main = () => {
   return (
     <>
-    <p>Hello World</p>
+    <Icmal/>
     </>
   )
 }
