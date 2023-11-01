@@ -1,4 +1,6 @@
 @import './subheader';
+@import './base';
+@import './utilities';
 
 
 body{
@@ -7,4 +9,4 @@ body{
 .container{
     width: 1350px;
     margin: 0 auto;
-}
+} 

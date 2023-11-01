@@ -1,37 +1,48 @@
 .subheader{
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 4rem;
 
     &__dinamic{
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap: 2.5rem;
+        
     }
     &__static{
-        display: grid;
-        grid-template-columns: repeat(6,1fr);
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
 
         &--item{
+            flex: 1;
             background: #fafbfc;
-            padding: 3.6rem 0.5rem;
+            padding: 1.6rem 0.5rem;
             text-align: center;
             color: #232d40;
             font-weight: 600;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-right: 1px solid #ccc;
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+
+            &__info{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border-right: 1px solid #ccc;
+            }
+            &__info.no-border{
+                border-right: none !important;
+            }
 
             svg{
                 color: #40b659;
                 margin-bottom: 2rem;
-                width: 3.4rem;
-                height: 3.3rem;
+                width: 5rem;
+                height: 4.5rem;
             }
 
             p{
-                font-size: 1.2rem;
+                font-size: 2rem;
             }
         }
     }
@@ -49,26 +60,28 @@
             background: #ffd436;
             color: #232d40;
             font-weight: 600;
-            padding: .7rem 1.4rem;
+            padding:1.3rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 2rem;
         }
 
         &--info{
-            padding: .9rem 1.4rem;
+            padding: 1rem 2rem;
             width: 100%;
             display: flex;
             flex-direction: column;
             flex: 1;
+            gap: 2rem;
 
             &__content{
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 &__image{
-                    height: 18.4rem;
-                    max-height: 18.4rem;
+                    height: 25rem;
+                    max-height:25rem;
                     object-fit: contain;
                 }
                 &__labels{
@@ -76,10 +89,12 @@
                     flex-direction: column;
                     align-items: flex-end;
                     margin-left: 1.5rem;
+                    gap: 2rem;
                 }
                 &__label{
                     margin-right: 0;
-                    font-size: 1.1rem;
+                    font-size: 1.6rem;
+                    font-weight: 600;
                     padding: 0.4rem 0.8rem;
                     height: auto;
                     -webkit-line-clamp: 1;
@@ -109,13 +124,13 @@
 
             &__brand{
                 align-items: flex-start;
-                margin-bottom: .6rem; 
+                margin-bottom: 1rem; 
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
 
                 img{
-                    height: 3.6rem;
+                    height: 6rem;
                     object-fit: contain;
                     object-position: right;
                     margin-top: 1rem;
@@ -131,9 +146,34 @@
                 &__title{
                     font-weight: 700;
                     color: #232d40;
-                    font-size: 1.6rem;
-                    line-height: 2rem;
+                    font-size: 2.5rem;
                     margin-right: 1.2rem;
+                }
+            }
+            &__bottom{
+                margin-top: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                &__price{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    font-weight: 500;
+                    .old-price{
+                        font-size: 1.8rem;
+                        color: #777;
+                        text-decoration:line-through;
+                    }
+                    .new-price{
+                        font-size: 3.5rem;
+                    }
+                }
+                &__buttons{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1rem;
                 }
             }
         }

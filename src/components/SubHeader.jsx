@@ -9,31 +9,56 @@ import {BsTruck} from 'react-icons/bs'
 import {GoVerified} from 'react-icons/go'
 import {AiOutlineGift} from 'react-icons/ai'
 import {SlBasket} from 'react-icons/sl'
+import {TbHandClick} from 'react-icons/tb'
 
 function SubHeader() {
+    var myCarousel = document.getElementById('myCarousel');
+    var myBtns = document.getElementById('myBtns');
+
+    var interval = setInterval(function() {
+        var activeItem = document.querySelector('.carousel-item.active');
+        var activeBtn = document.querySelector('.carousel_btn.active');
+
+        activeItem.classList.remove('active');
+        activeBtn.classList.remove('active');
+
+        var nextItem = activeItem.nextElementSibling;
+        var nextBtn = activeBtn.nextElementSibling;
+
+        if (!nextItem) {
+            nextItem = myCarousel.querySelector('.carousel-item.first-item')
+        }
+        if (!nextBtn) {
+            nextBtn = myBtns.querySelector('.carousel_btn.first-child')
+        }
+
+    // Sonraki öğeye "active" sınıfını ekle
+    nextItem.classList.add('active');
+    nextBtn.classList.add('active');
+    }, 5000)
   return (
     <>
     <div className='container'>
         <div className="subheader">
             <div className="subheader__dinamic">
                 <div className="subheader__carousel">
-                    <div id="carouselExampleCaptions" class="carousel slide carousel-fade carousel-dark">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" ></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" ></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" ></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"   ></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" ></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" ></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6"   ></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7" ></button>
+                    <div id="carouselExampleCaptions"  class="carousel slide carousel-fade carousel-dark">
+                    <div class="carousel-indicators" id='myBtns'>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class=" carousel_btn first-child"  aria-current="true" ></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class='active carousel_btn'></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" class='carousel_btn'></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" class='carousel_btn'  ></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" class='carousel_btn'></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" class='carousel_btn'></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6"   class='carousel_btn'></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7" class='carousel_btn'></button>
                         
                     </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
+                    <div class="carousel-inner" id='myCarousel'>
+                        <div class="carousel-item first-item ">
                             <img src="images/sayt-cover-2-1-1.jpg" class="d-block w-100" alt="..."/>
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item active">
                             <img src="images/sayt-cover-2-2-0.jpg" class="d-block w-100" alt="..."/>
                         </div>
                         <div class="carousel-item">
@@ -81,42 +106,75 @@ function SubHeader() {
                                     <div className="subheader__offer--info__content__label subheader__offer--info__content__label--purple">
                                         Faizsiz Təklif
                                     </div>
-                                    <div style={{color:'#1910B5 !important'}} class="subheader__offer--info__content__label"> Ucuz tapsan, endirimlə al </div>
+                                    <div style={{color:'#1910B5',border:'1px solid #1910B5',borderRadius:'5px'}} class="subheader__offer--info__content__label"> Ucuz tapsan, endirimlə al </div>
                                 </div>
                             </a>
+                            <div className="subheader__offer--info__bottom">
+                                <div className="subheader__offer--info__bottom__price">
+                                    <div className="old-price">
+                                        1199.99 AZN
+                                    </div>
+                                    <div className="new-price">
+                                        999.99 AZN
+                                    </div>
+                                </div>
+                                <div className="subheader__offer--info__bottom__buttons">
+                                    <a href="" className="button button-orange button--with__icon">
+                                        <TbHandClick/> Bir kliklə al
+                                    </a>
+                                    <a href="" className="button button-green">
+                                        <SlBasket/> 
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div className="subheader__static">
                     <div className="subheader__static--item">
-                        <FaStore/>
-                        <p>40-dan çox mağaza</p>
+                        <div className="subheader__static--item__info">
+                            <FaStore/>
+                            <p>40-dan çox mağaza</p>
+                        </div>
                     </div>
                     <div className="subheader__static--item">
+                    <div className="subheader__static--item__info">
                         <BsPhone/>
                         <p>30 mindən çox seçim</p>
                     </div>
+                    </div>
                     <div className="subheader__static--item">
+                    <div className="subheader__static--item__info">
                         <BsTruck/>
                         <p>Sürətli çatdırılma</p>
                     </div>
+                    </div>
                     <div className="subheader__static--item">
+                    <div className="subheader__static--item__info">
                         <GoVerified/>
                         <p>Rəsmi zəmanət</p>
                     </div>
+                    </div>
                     <div className="subheader__static--item">
+                    <div className="subheader__static--item__info">
                         <AiOutlineGift/>
                         <p>Bonus proqramı</p>
                     </div>
+                    </div>
                     <div className="subheader__static--item">
+                    <div className="subheader__static--item__info no-border">
                         <SlBasket/>
                         <p>Sürətli alış-veriş</p>
+                    </div>
                     </div>
                 </div>
         </div>
     </div>
     <script src='../../node_modules/bootstrap/dist/js/bootstrap.bundle.js'></script>
+    <script >
+   
+    </script>
     </>
   )
 }
